@@ -160,7 +160,7 @@ class TerminalWriter:
                 # When the Unicode situation improves we should consider
                 # letting the error propagate instead of masking it (see #7475
                 # for one brief attempt).
-                msg = msg.encode("unicode-escape").decode("ascii")
+                msg = msg.encode("ascii", errors="backslashreplace").decode("ascii")
                 self._file.write(msg)
 
             if flush:
